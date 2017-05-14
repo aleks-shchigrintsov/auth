@@ -6,8 +6,12 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
 
+const router = require('./router');
 // App setup
 
+app.use(morgan('combined'));
+app.use(bodyParser({ type: '*/*' }));
+router(app);
 
 // Server setup
 
